@@ -1,0 +1,120 @@
+:root {
+  --color-brand-lightest: hsl(144, 22%, 70%);
+  --color-brand-contrast: hsl(324, 50%, 50%);
+  --font-primary: roboto, sans-serif;
+  --font-secondary: 'Roboto Slab', serif;
+  --line-height: 2;
+  --line-height-small: 1.2;
+  --spacing: 1rem;
+}
+
+@keyframes card-before {
+  0% {
+    rotate: 4deg;
+  }
+
+  50% {
+    rotate: 6deg;
+  }
+
+  100% {
+    rotate: 4deg;
+  }
+}
+
+@keyframes card-after {
+  0% {
+    rotate: -3deg;
+  }
+
+  50% {
+    rotate: -5deg;
+  }
+
+  100% {
+    rotate: -3deg;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: var(--spacing);
+  background-color: var(--color-brand-lightest);
+  font-family: var(--font-primary);
+  line-height: var(--line-height);
+  text-align: center;
+}
+
+main {
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 300px;
+  height: auto;
+}
+
+.card,
+.card::before,
+.card::after {
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+
+}
+
+.card {
+  z-index: 1;
+}
+
+.card::before,
+.card::after {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.card::before {
+  position: absolute;
+  animation: card-before 2s infinite;
+  z-index: 0;
+  background-color: hsl(144, 22%, 80%);;
+}
+
+.card::after {
+  animation: card-after 2.5s infinite;
+  z-index: 0;
+  background-color: hsl(144, 22%, 90%);;
+}
+
+.card__content {
+  background-color: hsl(144, 22%, 98%);;
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 4px 6px 9px 0px #6e6e6e;
+}
+
+a {
+  color: var(--color-brand-contrast);
+  letter-spacing: 0.02rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--line-height-small);
+  font-family: var(--font-secondary);
+}
