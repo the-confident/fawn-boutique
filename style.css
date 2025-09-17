@@ -1,11 +1,18 @@
+@font-face {
+  font-family: Quicksand;
+  src: url(/assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
 :root {
-  --color-brand-lightest: hsl(144, 22%, 70%);
-  --color-brand-contrast: hsl(324, 50%, 50%);
-  --font-primary: roboto, sans-serif;
-  --font-secondary: 'Roboto Slab', serif;
+  --color-brand: hsl(83, 30%, 31%);
+  --color-brand-lighter: hsl(83, 30%, 85%);
+  --color-brand-lightest: hsl(83, 30%, 95%);
+  --font-primary: Quicksand, sans-serif;
+  --font-secondary: var(--font-primary);
   --line-height: 2;
   --line-height-small: 1.2;
   --spacing: 1rem;
+  --spacing-large: calc(var(--spacing) * 2);
 }
 
 @keyframes card-before {
@@ -45,7 +52,7 @@
 body {
   margin: 0;
   padding: var(--spacing);
-  background-color: var(--color-brand-lightest);
+  background-color: var(--color-brand);
   font-family: var(--font-primary);
   line-height: var(--line-height);
   text-align: center;
@@ -59,8 +66,35 @@ main {
 }
 
 img {
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
+}
+
+a {
+  color: var(--color-brand);
+  font-weight: bold;
+  letter-spacing: 0.02rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--line-height-small);
+  font-family: var(--font-secondary);
+}
+
+hr {
+  border-color: var(--color-brand);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .card,
@@ -83,23 +117,20 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: var(--color-brand-lighter);
 }
 
 .card::before {
   position: absolute;
   animation: card-before 2s infinite;
-  z-index: 0;
-  background-color: hsl(144, 22%, 80%);;
 }
 
 .card::after {
   animation: card-after 2.5s infinite;
-  z-index: 0;
-  background-color: hsl(144, 22%, 90%);;
 }
 
 .card__content {
-  background-color: hsl(144, 22%, 98%);;
+  background-color: var(--color-brand-lightest);
   position: relative;
   z-index: 2;
   padding: 2rem;
@@ -107,14 +138,15 @@ img {
   box-shadow: 4px 6px 9px 0px #6e6e6e;
 }
 
-a {
-  color: var(--color-brand-contrast);
-  letter-spacing: 0.02rem;
+.card__content > * {
+  margin: 0;
 }
 
-h1,
-h2,
-h3 {
-  line-height: var(--line-height-small);
-  font-family: var(--font-secondary);
+.card__content > * + * {
+  margin-block-start: var(--spacing-large);
+}
+
+.card__content img {
+  max-width: 160px;
+  margin-inline: auto;
 }
