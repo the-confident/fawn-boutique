@@ -1,4 +1,34 @@
-@font-face {
+/**
+  -----------------------------------------------------------------------------
+
+  @file CSS Styles for Fawn Boutique.
+
+  -----------------------------------------------------------------------------
+
+  Table of Contents
+
+  -----------------------------------------------------------------------------
+
+  1. Fonts
+  2. Custom Properties
+  3. Keyframes
+  4. Global Styles
+  5. Utility Classes
+  6. Component Styles
+
+  -----------------------------------------------------------------------------
+
+  Authors
+
+  -----------------------------------------------------------------------------
+
+  - Abigail Conroy
+  - Emily Conroy
+
+  -----------------------------------------------------------------------------
+*/
+
+ @font-face {
   font-family: Quicksand;
   src: url(/assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
 }
@@ -51,7 +81,7 @@
 
 body {
   margin: 0;
-  padding: var(--spacing);
+  padding: var(--spacing-large);
   background-color: var(--color-brand);
   font-family: var(--font-primary);
   line-height: var(--line-height);
